@@ -1,0 +1,13 @@
+body {
+    display:grid;
+    grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+}
+
+.grid-section {
+    grid-column: 2 / 4;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 20px 300px 1fr;
+    grid-gap: 100px;
+}

@@ -1,0 +1,274 @@
+@import url(./grid.css);
+
+body, h1, h2, h3, ul, li, dt, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    color: #222;
+    background-color: #FFF8DC;
+}
+
+.menu {
+    grid-column: 3 / 5;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background: #003580;
+}
+
+.menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+    margin-right: 10px;
+    color: #222;
+    text-decoration: none;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .3em;
+    color:#fff;
+}
+
+.header {
+    grid-column: 1 /5;
+    height: 500px;
+    background-image: url(../src/img/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: normal;
+    font-size: 6rem;
+    color: #fff;
+    text-align: center;
+    display: block;
+    text-shadow: 2px 5px 0.1em #222;
+}
+
+.header span {
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 2px 2px 0.1em #222;
+    padding: 10px;
+    color: #fff;
+}
+
+.titulo {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 5rem;
+    font-weight: normal;
+    grid-column: 1 / 4;
+}
+
+.praias-descricao{
+    grid-column: 3;
+}
+
+.praias-descricao p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.praias-descricao h2 {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 1rem;
+    color: #FF4500;
+}
+
+.praias-descricao h2::before {
+    content: '►';
+    display: inline-block;  
+}
+
+.praias-descricao section {
+    margin-bottom: 3rem;
+}
+
+.lista-praias {
+    height: 370px;
+    overflow-y: scroll;
+    grid-column: 2;
+}
+
+.lista-praias img {
+    cursor: pointer;
+    
+}
+
+.faq-lista {
+    grid-column: 2 / 4;
+    
+}
+
+.faq-lista dt {
+    font-weight: bold;
+    font-family: 'Work Sans', sans-serif;
+    margin-bottom: .5rem;
+    margin-top: 2rem;
+    color: #FF4500;
+}
+
+.faq-lista dt::before {
+    content: '►';
+    display: inline-block;  
+}
+
+.faq-lista dd {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 30px;
+}
+
+.contato-form {
+    grid-column: 2 /4;
+}
+
+.contato-form input, textarea {
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 69, 0,.4);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color:#222;
+    outline: none;
+}
+
+.contato-form label {
+    color: #FF4500;
+    font-weight: bold;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.contato-form button {
+    border:none;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #FF4500;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+.footer {
+    grid-column: 3 / 5;
+    margin: 2rem 0;
+    background: #003580;
+    color: #fff;
+}
+
+.footer p {
+    padding: 20px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+
+/* -----------------------------JS----------------------------------------------*/
+
+[data-lista="conteudo"] section {
+    display: none;
+}
+
+[data-lista="conteudo"] section.active {
+    display: block;
+    animation: teste .5s forwards;
+}
+
+[data-accordion] dt {
+    cursor: pointer;
+}
+
+[data-accordion] dd {
+    display: none;
+}
+
+[data-accordion] dd.active {
+    display: block;
+    animation: accordion .5s forwards;
+}
+
+@keyframes accordion {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    to {
+        max-height: 200px;
+        opacity: 1;
+    }
+}
+
+@keyframes teste {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+@media (max-width: 700px){
+    body {
+        grid-template-columns: 1fr;
+    }
+    .menu, .grid-section, .footer {
+        grid-column: 1;
+    }
+
+    .grid-section {
+        grid-template-columns: 100px 1fr;
+        grid-gap:10px;
+    }
+
+    .lista-praias {
+        grid-column: 1;
+    }
+    .faq-lista, .contato-form {
+        grid-column: 1 / 3;
+    }
+
+    .grid-section h1 {
+        font-size: 3rem;
+    }
+    .menu, .footer {
+        margin: 0;
+    }
+}
+
+
+
+
+
+
+
